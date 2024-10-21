@@ -1,6 +1,6 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+CFLAGS = -Wall -Werror -Wextra
 SRC = gnl/get_next_line_utils.c gnl/get_next_line.c srcs/main.c srcs/check_map.c \
 		srcs/utils.c srcs/libft_utils.c srcs/split.c srcs/flood_fill.c srcs/check_map_2.c
 OBJ_DIR = obj

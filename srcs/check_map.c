@@ -5,6 +5,8 @@ void	ft_check_map(char *file)
 	int	fd;
 
 	fd = ft_open(file);
+	if (fd < 0)
+		exit(0);
 	ft_read_file(fd);
 	close(fd);
 	fd = ft_open(file);
@@ -79,9 +81,9 @@ void	ft_create_map(int fd)
 	while (str)
 	{
 		map()->map[i++] = str;
+		//free(str);
 		str = get_next_line(fd);
-		free(str);
 	}
-	map()->map[i] == NULL;
+	map()->map[i] = NULL;
 	ft_create_map_copy();
 }

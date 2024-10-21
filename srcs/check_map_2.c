@@ -75,14 +75,17 @@ void	ft_create_map_copy(void)
 	}
 	while (map()->map[i])
 	{
+		//printf("%s\n", map()->map[i]);
 		map()->map_copy[i] = ft_strdup(map()->map[i]);
-		if (!map()->map_copy)
+		if (!map()->map_copy[i])
 		{
 			ft_free_map(map()->map);
 			ft_free_map(map()->map_copy);
 			ft_error("Memory allocation error\n");
 		}
+		free(map()->map[i]);
 		i++;
 	}
 	map()->map_copy[i] = NULL;
+	free(map()->map);
 }
