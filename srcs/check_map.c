@@ -6,7 +6,10 @@ void	ft_check_map(char *file)
 
 	fd = ft_open(file);
 	if (fd < 0)
+	{
+		write(1, "Error: Could not open the file\n", 32);
 		exit(0);
+	}
 	ft_read_file(fd);
 	close(fd);
 	fd = ft_open(file);
@@ -81,9 +84,8 @@ void	ft_create_map(int fd)
 	while (str)
 	{
 		map()->map[i++] = str;
-		//free(str);
 		str = get_next_line(fd);
 	}
-	map()->map[i] = NULL;
+	map()->map[i] == NULL;
 	ft_create_map_copy();
 }

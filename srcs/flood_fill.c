@@ -14,14 +14,14 @@ void	ft_flood_fill(int x, int y)
 	ft_flood_fill(x, y - 1);
 }
 
-void	ft_check_pos_and_fill(char **map_copy, int y)
+void	ft_check_pos_and_fill(char **mapp, int y)
 {
 	int	x;
 
 	x = 0;
-	while(map_copy[y][x])
+	while(mapp[y][x])
 	{
-		if (map_copy[y][x] == 'P')
+		if (mapp[y][x] == 'P')
 		{
 			map()->starting_pos_x = x;
 			map()->starting_pos_y = y;
@@ -31,7 +31,6 @@ void	ft_check_pos_and_fill(char **map_copy, int y)
 				&& map()->starting_pos == map()->position_temp))
 			{
 				ft_free_map(map()->map_copy);
-				ft_free_map(map()->map);
 				ft_error("Error: Impossible to find a valid path\n");
 			}
 			return ;
@@ -40,15 +39,15 @@ void	ft_check_pos_and_fill(char **map_copy, int y)
 	}
 }
 
-void	ft_pre_flood_fill(char **map)
+void	ft_pre_flood_fill(char **mapp)
 {
 	int	y;
 
 	y = 0;
-	while (map[y])
+	while (mapp[y])
 	{
-		ft_check_pos_and_fill(map, y);
+		ft_check_pos_and_fill(mapp, y);
 		y++;
 	}
-	ft_free_map(map);
+	ft_free_map(map()->map_copy);
 }

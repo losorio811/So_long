@@ -22,7 +22,7 @@ int	ft_open(char *file)
 {
 	int	fd;
 	fd = open(file, O_RDONLY);
-	if (file < 0)
+	if (fd < 0)
 		ft_error("Error opening the file\n");
 	return (fd);
 }
@@ -75,7 +75,6 @@ void	ft_create_map_copy(void)
 	}
 	while (map()->map[i])
 	{
-		//printf("%s\n", map()->map[i]);
 		map()->map_copy[i] = ft_strdup(map()->map[i]);
 		if (!map()->map_copy[i])
 		{
@@ -83,9 +82,7 @@ void	ft_create_map_copy(void)
 			ft_free_map(map()->map_copy);
 			ft_error("Memory allocation error\n");
 		}
-		free(map()->map[i]);
 		i++;
 	}
 	map()->map_copy[i] = NULL;
-	free(map()->map);
 }

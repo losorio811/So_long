@@ -19,9 +19,8 @@ void	ft_check_args(int ac, char *av[])
 
 int main(int ac, char *av[])
 {
-	t_map	map;
-
 	ft_check_args(ac, av);
 	ft_check_map(av[1]);
+	init_mlx();
 	return (0);
 }

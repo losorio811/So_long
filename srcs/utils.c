@@ -39,22 +39,15 @@ t_map	*map(void)
 	return (&map);
 }
 
-char	*ft_strdup(char *str)
+void	put_image(t_window *win, int y, int x)
 {
-	int		i;
-	char	*ptr;
-	int		size;
-
-	i = 0;
-	size = ft_strlen(str);
-	ptr = (char *)malloc(sizeof(char) * size + 1);
-	if (ptr == NULL)
-		return (NULL);
-	while (str[i])
-	{
-		ptr[i] = str[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	if (map()->map[y][x] == 'P')
+		mlx_put_image_to_window(win->mlx, win->win,
+			win->textp, x * I, y * I);
+	else if (map()->map[y][x] == 'C')
+		mlx_put_image_to_window(win->mlx, win->win,
+			win->textc, x * I, y * I);
+	else if (map()->map[y][x] == 'E')
+		mlx_put_image_to_window(win->mlx, win->win,
+			win->texte, x * I, y * I);
 }
