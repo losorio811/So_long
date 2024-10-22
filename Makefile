@@ -1,8 +1,9 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -Lminilibx-linux -lmlx_Linux -lX11 -lXext
 SRC = gnl/get_next_line_utils.c gnl/get_next_line.c srcs/main.c srcs/check_map.c \
-		srcs/utils.c srcs/libft_utils.c srcs/split.c srcs/flood_fill.c srcs/check_map_2.c
+		srcs/utils.c srcs/libft_utils.c srcs/split.c srcs/flood_fill.c srcs/check_map_2.c \
+		srcs/mlx_init.c
 OBJ_DIR = obj
 INCLUDE_FOLDER = include
 INCLUDES = -I $(INCLUDE_FOLDER)

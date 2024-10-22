@@ -2,9 +2,13 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../mlx/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "../gnl/get_next_line.h"
 # include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdbool.h>
 
 # define KEY_ESC 65307
 # define ICON_SIZE 40
@@ -30,6 +34,26 @@ typedef struct s_map
 	int		position_temp;
 }		t_map;
 
+typedef struct s_window
+{
+	void	*mlx;
+	void	*win;
+	void	*text0;
+	void	*text1;
+	void	*textc;
+	void	*texte;
+	void	*textp;
+	char	*path0;
+	char	*path1;
+	char	*pathc;
+	char	*pathe;
+	char	*pathp;
+	int		width;
+	int		height;
+	int		collected;
+}		t_window;
+
+
 int		ft_strcmp(char *str1, char *str2);
 int		ft_linelen(char *str);
 void	ft_check_args(int ac, char *av[]);
@@ -51,5 +75,8 @@ void	ft_check_char(void);
 void	ft_create_map(int fd);
 void	ft_create_map_copy(void);
 char	*ft_strdup(char *str);
+void	init_mlx(void);
+void	ft_write_moves(int n);
+void	put_image(t_window *win, int y, int x);
 
 #endif
