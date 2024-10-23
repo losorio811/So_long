@@ -23,7 +23,7 @@ int	ft_open(char *file)
 	int	fd;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		ft_error("Error opening the file\n");
+		ft_error("Error: Couldn't open the file\n");
 	return (fd);
 }
 
@@ -46,7 +46,7 @@ void	ft_map_char(char *str)
 		else
 		{
 			free(str);
-			ft_error("Invalid character\n");
+			ft_error("Error: Invalid character\n");
 		}
 		i++;
 	}

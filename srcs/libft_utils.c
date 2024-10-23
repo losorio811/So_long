@@ -22,6 +22,8 @@ int	ft_linelen(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		ft_error("Empty map\n");
 	while (str[i] && str[i] != '\n')
 		i++;
 	return (i);

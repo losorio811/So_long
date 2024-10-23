@@ -31,6 +31,7 @@ void	ft_check_pos_and_fill(char **mapp, int y)
 				&& map()->starting_pos == map()->position_temp))
 			{
 				ft_free_map(map()->map_copy);
+				ft_free_map(map()->map);
 				ft_error("Error: Impossible to find a valid path\n");
 			}
 			return ;

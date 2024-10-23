@@ -38,7 +38,7 @@ void	check_if_collected(int keycode, int start_x, int start_y, t_window *win)
 	if ((win->collected == map()->collect) 
 		&& map()->map[map()->starting_pos_y][map()->starting_pos_x] == 'E')
 	{
-		write(1, "WIN", 4);
+		write(1, "WIN\n", 4);
 		destroy(win);
 	}
 }

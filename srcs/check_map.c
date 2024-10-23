@@ -6,10 +6,7 @@ void	ft_check_map(char *file)
 
 	fd = ft_open(file);
 	if (fd < 0)
-	{
-		write(1, "Error: Could not open the file\n", 32);
-		exit(0);
-	}
+		ft_error("Error: Could not open the file\n");
 	ft_read_file(fd);
 	close(fd);
 	fd = ft_open(file);
@@ -79,13 +76,13 @@ void	ft_create_map(int fd)
 	i = 0;
 	map()->map = (char **)malloc((map()->rows + 1) * sizeof(char *));
 	if (!map()->map)
-		ft_error("Memory allocation error\n");
+		ft_error("Error: Memory allocation error\n");
 	str = get_next_line(fd);
 	while (str)
 	{
 		map()->map[i++] = str;
 		str = get_next_line(fd);
 	}
-	map()->map[i] == NULL;
+	map()->map[i] = NULL;
 	ft_create_map_copy();
 }
